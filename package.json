@@ -1,0 +1,23 @@
+{
+  "name": "studyweb",
+  "version": "1.0.0",
+  "description": "the browser for students",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chonkee-dave76/studyweb.git"
+  },
+  "author": "David Cavanagh-Lancaster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chonkee-dave76/studyweb/issues"
+  },
+  "homepage": "https://github.com/chonkee-dave76/studyweb#readme",
+  "devDependencies": {
+    "electron": "^33.2.0"
+  }
+}

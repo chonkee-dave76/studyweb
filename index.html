@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron Browser</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #controls {
+            display: flex;
+            background: #eee;
+            padding: 10px;
+        }
+        #controls input {
+            flex: 1;
+            margin-right: 10px;
+            padding: 5px;
+        }
+        #webview {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <button id="back">Back</button>
+        <button id="forward">Forward</button>
+        <input id="url" type="text" placeholder="Enter URL" />
+        <button id="go">Go</button>
+    </div>
+    <webview id="webview" src="https://www.google.com" style="width: 100%; height: 100%;"></webview>
+
+    <script>
+        const backButton = document.getElementById('back');
+        const forwardButton = document.getElementById('forward');
+        const urlInput = document.getElementById('url');
+        const goButton = document.getElementById('go');
+        const webview = document.getElementById('webview');
+
+        // Navigation buttons
+        backButton.addEventListener('click', () => webview.goBack());
+        forwardButton.addEventListener('click', () => webview.goForward());
+
+        // Load URL from the input
+        goButton.addEventListener('click', () => {
+            const url = urlInput.value.startsWith('http') ? urlInput.value : `https://${urlInput.value}`;
+            webview.loadURL(url);
+        });
+
+        // Update the input field when the webview navigates
+        webview.addEventListener('did-navigate', () => {
+            urlInput.value = webview.getURL();
+        });
+    </script>
+</body>
+</html>
