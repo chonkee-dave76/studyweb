@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electron Browser</title>
+    <link rel="stylesheet" href="styles/style.css">
     <style>
         body {
             margin: 0;
@@ -28,10 +29,16 @@
 </head>
 <body>
     <div id="controls">
-        <button id="back">Back</button>
-        <button id="forward">Forward</button>
+        <button id="back" class="custom-button">
+            <img src="icons/back.svg" alt="Back" class="icon">
+        </button>
+        <button id="forward" class="custom-button">
+            <img src="icons/forward.svg" alt="Forward" class="icon">
+        </button>
         <input id="url" type="text" placeholder="Enter URL" />
-        <button id="go">Go</button>
+        <button id="go" class="custom-button">
+            <img src="icons/go.svg" alt="Go" class="icon">
+        </button>
     </div>
     <webview id="webview" src="https://www.google.com" style="width: 100%; height: 100%;"></webview>
 

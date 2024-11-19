@@ -1,0 +1,47 @@
+/* General button styles */
+.custom-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.custom-button:hover {
+    background-color: #ddd;
+}
+
+.custom-button:active {
+    transform: scale(0.95);
+}
+
+/* Icon styles */
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Input box */
+#url {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+/* Control bar styles */
+#controls {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background: #fafafa;
+    border-bottom: 1px solid #ddd;
+}
