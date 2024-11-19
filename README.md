@@ -1,2 +1,2 @@
 # studyweb
-browser for students
+the browser for students
