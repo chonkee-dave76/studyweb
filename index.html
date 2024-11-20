@@ -28,41 +28,34 @@
     </style>
 </head>
 <body>
+    <!-- Tab Bar -->
+    <div id="tab-bar">
+        <button id="new-tab" class="tab-button">+ New Tab</button>
+    </div>
+    <!-- Controls -->
     <div id="controls">
-        <button id="back" class="custom-button">
+        <button id="back-button" class="custom-button">
             <img src="icons/back.svg" alt="Back" class="icon">
         </button>
-        <button id="forward" class="custom-button">
+        <button id="forward-button" class="custom-button">
             <img src="icons/forward.svg" alt="Forward" class="icon">
         </button>
         <input id="url" type="text" placeholder="Enter URL" />
-        <button id="go" class="custom-button">
-            <img src="icons/go.svg" alt="Go" class="icon">
+        <button id="options-button" class="custom-button">
+            <img src="icons/settings.svg" alt="Options" class="icon">
         </button>
+        <div id="options" class="dropdown">
+            <button class="dropdown-item" id="new-tab">New Tab</button>
+            <button class="dropdown-item" id="close-tab">Close Tab</button>
+            <button class="dropdown-item" id="settings">Settings</button>
+        </div>
     </div>
-    <webview id="webview" src="https://www.google.com" style="width: 100%; height: 100%;"></webview>
 
-    <script>
-        const backButton = document.getElementById('back');
-        const forwardButton = document.getElementById('forward');
-        const urlInput = document.getElementById('url');
-        const goButton = document.getElementById('go');
-        const webview = document.getElementById('webview');
+    <div id="webview-container">
+        <!-- Webviews will be dynamically added here -->
+    </div>
 
-        // Navigation buttons
-        backButton.addEventListener('click', () => webview.goBack());
-        forwardButton.addEventListener('click', () => webview.goForward());
+    <script src="renderer.js" defer></script>
 
-        // Load URL from the input
-        goButton.addEventListener('click', () => {
-            const url = urlInput.value.startsWith('http') ? urlInput.value : `https://${urlInput.value}`;
-            webview.loadURL(url);
-        });
-
-        // Update the input field when the webview navigates
-        webview.addEventListener('did-navigate', () => {
-            urlInput.value = webview.getURL();
-        });
-    </script>
 </body>
 </html>

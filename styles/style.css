@@ -45,3 +45,91 @@
     background: #fafafa;
     border-bottom: 1px solid #ddd;
 }
+
+/* Tab bar styles */
+#tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+}
+
+.tab {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+}
+
+.tab-button {
+    padding: 5px 10px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#webview-container {
+    flex: 1; /* Take up all remaining vertical space */
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Each webview should fill the container */
+webview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 1; /* Ensure it stretches to fill the space */
+}
+
+/* Menu container */
+#menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Menu button */
+#menu-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    right: 0; /* Align to the right of the menu button */
+    top: 30px; /* Adjust to appear below the button */
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    z-index: 10;
+}
+
+/* Menu items */
+.dropdown-item {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
