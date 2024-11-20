@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlInput = document.getElementById('url');
     const optionsButton = document.getElementById('options-button');
     const options = document.getElementById('options');
+    const minimizeButton = document.getElementById('minimize');
+    const fullscreenButton = document.getElementById('fullscreen');
+    const closeButton = document.getElementById('close');
 
     // Create a new tab
     function createTab(url = 'https://www.google.com') {
@@ -123,4 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Open the default tab
     createTab('https://www.google.com');
+
+    minimizeButton.addEventListener('click', () => {
+        window.electronAPI.minimize();
+    });
+
+    fullscreenButton.addEventListener('click', () => {
+        window.electronAPI.toggleFullscreen();
+    });
+
+    closeButton.addEventListener('click', () => {
+        window.electronAPI.close();
+    });
 });

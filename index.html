@@ -28,10 +28,27 @@
     </style>
 </head>
 <body>
+    <!-- Title Bar -->
+    <div id="title-bar">
+        <div id="window-controls">
+            <button id="close" class="window-button">
+                <img src="icons/circle.svg" alt="Back" class="icon">
+            </button>
+            <button id="minimize" class="window-button">
+                <img src="icons/circle.svg" alt="Back" class="icon">
+            </button>
+            <button id="fullscreen" class="window-button">
+                <img src="icons/circle.svg" alt="Back" class="icon">
+            </button>
+        </div>
+        <div id="drag-region"></div>
+    </div>
+     
     <!-- Tab Bar -->
     <div id="tab-bar">
         <button id="new-tab" class="tab-button">+ New Tab</button>
     </div>
+
     <!-- Controls -->
     <div id="controls">
         <button id="back-button" class="custom-button">
@@ -42,15 +59,30 @@
         </button>
         <input id="url" type="text" placeholder="Enter URL" />
         <button id="options-button" class="custom-button">
-            <img src="icons/settings.svg" alt="Options" class="icon">
+            <img src="icons/option-menu.svg" alt="Options" class="icon">
         </button>
         <div id="options" class="dropdown">
-            <button class="dropdown-item" id="new-tab">New Tab</button>
-            <button class="dropdown-item" id="close-tab">Close Tab</button>
             <button class="dropdown-item" id="settings">Settings</button>
         </div>
     </div>
 
+    <!-- Sidebar Toolbar -->
+    <div id="sidebar">
+        <button id="flashcards-button" class="sidebar-button">
+            <img src="icons/flashcards.svg" alt="Flashcards" class="icon">
+        </button>
+        <button id="citation-button" class="sidebar-button">
+            <img src="icons/cite.svg" alt="Cite" class="icon">
+        </button>
+        <button id="ai-summary-button" class="sidebar-button">
+            <img src="icons/ai-summary.svg" alt="AI Summary" class="icon">
+        </button>
+        <button id="settings-button" class="sidebar-button">
+            <img src="icons/settings.svg" alt="Settings" class="icon">
+        </button>
+    </div>
+
+    <!-- Dynamic Webviews -->
     <div id="webview-container">
         <!-- Webviews will be dynamically added here -->
     </div>
