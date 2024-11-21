@@ -14,9 +14,11 @@ app.on('ready', () => {
             preload: `${__dirname}/preload.js`, // Add preload.js for IPC
         },
     });
+    
 
     // Load the browser UI (browser.html)
     mainWindow.loadFile('index.html');
+    mainWindow.webContents.openDevTools();
     
     ipcMain.on('window-minimize', () => {
         mainWindow.minimize();

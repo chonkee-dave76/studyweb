@@ -151,15 +151,12 @@
     background-color: transparent;
 }
 
-#url {
+.search-bar-input {
     height: 80%;
     width: 100%;
     margin: 5px;
     border: none;
     border-radius: 10px;
-}
-
-.search-bar-input {
     color: #757575;
     background-color: #eee;
     padding-left: 12px;
@@ -183,6 +180,7 @@
     align-items: center;
     border-radius: 10px;
     background-color: transparent;
+    flex-direction: column;
 }
 
 .new-tab-button {
@@ -190,7 +188,7 @@
     flex-direction: row;
     align-items: center;
     height: 80%;
-    width: 100%;
+    width: 95%;
     margin: 5px;
     border: none;
     border-radius: 10px;
@@ -198,7 +196,7 @@
     transition: background-color 0.3s;
     color: #757575;
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .new-tab-icon {
@@ -209,6 +207,52 @@
 
 .new-tab-button:hover {
     background-color: #eee;
+}
+
+#tab-column {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    border-radius: 10px;
+    background-color: transparent;
+    flex-direction: column;
+}
+
+.tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    width: 95%;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    color: #757575;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.tab:hover {
+    background-color: #eee;
+}
+
+.tab.active {
+    background-color: #eee;
+}
+
+.tab-favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.tab-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #webview-container {
