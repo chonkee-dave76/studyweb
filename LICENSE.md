@@ -5,7 +5,7 @@
 Permission is hereby granted to any individual or organization to view and read the source code contained in this repository (the “Software”) for the purposes of education, evaluation, and personal understanding only.
 
 Restrictions:
-	**1.	No Modification**
+	**1.	No Modification** 
 You may not modify, adapt, or create derivative works based on the Software.
 	**2.	No Redistribution**
 You may not distribute, sublicense, publish, or share the Software or any portion of it, in original or modified form.
