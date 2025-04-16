@@ -1,8 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;  /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
 #main {
     display: flex;
     flex-direction: row;
     height: 100%;
-    width: 100%;  
+    width: 100%;
 }
 
 .separator {
@@ -14,6 +25,11 @@
     margin-bottom: 15px;
 }
 
+.error-page-icon {
+    width: 25px;
+    height: 25px;
+}
+
 #controls {
     display: flex;
     flex-direction: column;
@@ -21,7 +37,7 @@
     width: 250px;
     margin: 5px;
     border-radius: 10px;
-    background: transparent 
+    
 }
 
 #control-buttons {
@@ -51,6 +67,30 @@
     margin-left: 8px;
     background-color: #ccc;
     transition: background-color 0.3s;
+}
+
+.close-button img {
+    display: none;
+    width: 6px;
+    height: 6px;
+}
+
+.minimise-button img {
+    display: none;
+    width: 8px;
+    height: 12px;
+}
+
+.fullscreen-button img {
+    display: none;
+    width: 10px;
+    height: 10px;
+}
+
+.close-button:hover img,
+.minimise-button:hover img, 
+.fullscreen-button:hover img {
+    display: block;
 }
 
 .close-button:hover,
@@ -89,6 +129,16 @@
     transform: scale(1.1);
 }
 
+.back-button:disabled {
+    cursor: not-allowed; /* Change the cursor to indicate it's non-clickable */
+    opacity: 0.5;        /* Make the button look less prominent */
+    border-color: #aaa; 
+}
+
+.back-button:disabled:hover {
+    transform: none; /* Disable any scaling or transitions */
+}
+
 .forward-button {
     display: flex;
     align-items: center;
@@ -110,6 +160,16 @@
     transform: scale(1.1);
 }
 
+.forward-button:disabled {
+    cursor: not-allowed; /* Change the cursor to indicate it's non-clickable */
+    opacity: 0.5;        /* Make the button look less prominent */
+    border-color: #aaa; 
+}
+
+.forward-button:disabled:hover {
+    transform: none; /* Disable any scaling or transitions */
+}
+
 .refresh-button {
     display: flex;
     align-items: center;
@@ -129,6 +189,16 @@
 
 .refresh-button:active {
     transform: scale(1.1);
+}
+
+.refresh-button:disabled {
+    cursor: not-allowed; /* Change the cursor to indicate it's non-clickable */
+    opacity: 0.5;        /* Make the button look less prominent */
+    border-color: #aaa; 
+}
+
+.refresh-button:disabled:hover {
+    transform: none; /* Disable any scaling or transitions */
 }
 
 .control-button-icon {
@@ -173,6 +243,36 @@
     background-color: #ccc;
 }
 
+.search-bar-input::selection {
+    background-color: #86b7fc;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.search-button img {
+    width: 18px;
+    height: 18px;
+}
+
+.search-button:hover {
+    background-color: #eee;
+}
+
+.search-button:active {
+    transform: scale(1.1);
+}
+
 #tab-controls {
     display: flex;
     width: 100%;
@@ -193,7 +293,7 @@
     border: none;
     border-radius: 10px;
     background-color: transparent;
-    transition: background-color 0.3s;
+    transition: transform 0.4s ease, background-color 0.3s;
     color: #757575;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -249,10 +349,38 @@
     margin-right: 10px;
 }
 
+
 .tab-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.close-tab-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.close-tab-button img {
+    width: 22px;
+    height: 22px;
+}
+
+.close-tab-button:hover {
+    background-color: #ccc;
+}
+
+.close-tab-button:active {
+    transform: scale(1.1);
 }
 
 #webview-container {
@@ -260,17 +388,21 @@
     display: flex;
     position: relative;
     overflow: hidden;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
-    background: #ccc;
+    background: white;
+    border: none;
+    box-shadow: 0px 0px 4px 1px #A5A5A5;
 }
 
 webview {
     width: 100%;
     height: 100%;
     display: flex;
-    flex: 1; 
+    flex: 1;
+    border: none; /* Remove any default border from webview */
+    outline: none; /* Ensure the webview does not override the container's outline */
 }
 
 #sidebar {
@@ -278,6 +410,7 @@ webview {
     flex-direction: column;
     width: 50px;
     padding-right: 10px;
+    padding-top: 5px;
     border-radius: 10px;
     background: transparent;
 }
@@ -290,7 +423,7 @@ webview {
     border: none;
     border-radius: 10px;
     background-color: transparent;
-    transition: background-color 0.3s;
+    transition: transform 0.2s ease, background-color 0.3s;
 }
 
 .settings-button {
@@ -304,7 +437,7 @@ webview {
     border: none;
     border-radius: 10px;
     background-color: transparent;
-    transition: background-color 0.3s;
+    transition: transform 0.2s ease, background-color 0.3s;
 }
 
 .flashcards-button:hover, 
@@ -314,7 +447,331 @@ webview {
     background-color: #eee;
 }
 
+.flashcards-button:active, 
+.citation-button:active, 
+.summarise-button:active,
+.settings-button:active {
+    background-color: #eee;
+    transform: scale(0.9);
+}
+
 .sidebar-button-icon {
     height: 20px;
     width: 20px;
 }
+
+/* General Popup Styles */
+.popup {
+    position: absolute; /* Let JavaScript control positioning */
+    width: 300px; /* Adjust width as needed */
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    transition: opacity 0.2s ease-in-out;
+    display: none;
+    overflow: hidden; /* Prevents content overflow */
+    flex-direction: column; /* Stack children vertically */
+    height: 100%; /* Allow full-height */
+}
+
+.popup.show {
+    display: flex; /* Enables full-height layout when opened */
+    opacity: 1;
+}
+
+/* Ensure popup-content fills remaining space */
+.popup-content {
+    flex-grow: 1; /* Expands to fill available space */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Enables scrolling for long content */
+}
+
+.popup-header {
+    width: auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: left; /* Center items vertically */
+    margin-bottom: 5px; /* Space below header */
+}
+
+.popup-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    margin-left: 10px; /* Space between icon and text */
+}
+
+.popup-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    color: #000000; /* Darker text for better readability */
+}
+
+.popup-subtitle {
+    margin-left: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    margin-bottom: 0px;
+    color: #757575; /* Lighter text for better readability */
+}
+
+#summary-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Enables scrolling for long content */
+}
+
+#generate-summary-button {
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #86b7fc;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    color: #eee;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 15px 5px 15px;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+#generate-summary-button:hover {
+    background-color: #6fa3e8;
+}
+
+#generate-summary-button:active {
+    background-color: #6fa3e8;
+    transform: scale(1.05);
+}
+
+/* Close Button Alignment */
+.close-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligns close button to the top */
+    margin-left: auto;
+    align-items: center;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.close-popup img {
+    align-self: center;
+    width: 22px;
+    height: 22px;
+}
+
+.close-popup:hover {
+    background-color: #ccc;
+}
+
+.close-popup:active {
+    transform: scale(1.1);
+}
+
+#citation-text-container {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    background-color: transparent;
+    flex-direction: column;
+}
+
+#new-project-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    margin: 5px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: transform 0.4s ease, background-color 0.3s;
+    color: #757575;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+#new-project-button:hover {
+    background-color: #eee;
+}
+
+.new-project-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    color: #757575;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.project:focus {
+    background-color: #eee;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.project-title {
+    color: #757575;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 25px;
+    border: none;
+}
+
+.project-title::selection {
+    background-color: #86b7fc;
+}
+
+.project-title:focus {
+    outline: none;
+}
+
+.project-add-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.project-add-button img {
+    width: 14px;
+    height: 14px;
+}
+
+.project-add-button:hover {
+    background-color: #ccc;
+}
+
+.project-edit-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.project-edit-button img {
+    width: 14px;
+    height: 14px;
+}
+
+.project-edit-button:hover {
+    background-color: #ccc;
+}
+
+
+.project-delete-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.project-delete-button img {
+    width: 22px;
+    height: 22px;
+}
+
+.project-delete-button:hover {
+    background-color: #ccc;
+}
+
+.project-clickable {
+    display: none;
+    margin-left: auto;
+    width: 40%;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+}
+
+.project-citations {
+    flex-direction: column;
+    width: 95%;
+    height: fit-content;
+    background-color: transparent;
+}
+
+.citation {
+    text-indent: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    color: #757575;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 10px;
+    height: 40px
+}
+
+

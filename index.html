@@ -18,22 +18,22 @@
     </style>
 </head>
 <body>
-   <div id="main">
-        <!-- Controls -->
-        <div id="controls">
-            <div id="control-buttons">
-                <div id="titlebar-buttons">
-                    <button id="close-button" class="close-button">
-                        
-                    </button>
-                    <button id="minimise-button" class="minimise-button">
-                        
-                    </button>
-                    <button id="fullscreen-button" class="fullscreen-button">
-                        
-                    </button>
-                </div>
-                <div id="browser-buttons">
+    <div id="main">
+             <!-- Controls -->
+             <div id="controls">
+                 <div id="control-buttons">
+                     <div id="titlebar-buttons">
+                         <button id="close-button" class="close-button">
+                            <img src="icons/cross titlebar.svg">
+                         </button>
+                         <button id="minimise-button" class="minimise-button">
+                            <img src="icons/minimise.svg">
+                         </button>
+                         <button id="fullscreen-button" class="fullscreen-button">
+                            <img src="icons/fullscreen.svg">
+                         </button>
+                     </div>
+                     <div id="browser-buttons">
                     <button id="back-button" class="back-button">
                         <img src="icons/back.svg" alt="Back" class="control-button-icon">
                     </button>
@@ -43,45 +43,90 @@
                     <button id="refresh-button" class="refresh-button">
                         <img src="icons/refresh.svg" alt="Refresh" class="refresh-button-icon">
                     </button>
+                     </div>
+                 </div>
+                 <div id="search-bar">
+                    <input id="search-bar-input" type="text" class="search-bar-input" placeholder="search" />
+                    <button id="search-button" class="search-button">
+                        <img src="icons/search.svg">
+                    </button>
+                 </div>
+                 <div class="separator"></div>
+                 <div id="tab-column">
+
+                 </div>
+                 <div id="tab-controls">
+                     <button id="new-tab-button" class="new-tab-button">
+                         <img src="icons/plus.svg" alt="New tab" class="new-tab-icon">
+                         <span class="new-tab-button-text">new tab</span>
+                     </button>
+                 </div>
+             </div>
+
+         
+             <!-- Dynamic Webviews -->
+             <div id="webview-container">
+                
+             </div>
+         
+             <!-- Sidebar Toolbar -->
+             <div id="sidebar">
+                 <button id="flashcards-button" class="flashcards-button">
+                     <img src="icons/flashcards.svg" alt="Flashcards" class="sidebar-button-icon">
+                 </button>
+                 <button id="citation-button" class="citation-button">
+                     <img src="icons/cite.svg" alt="Citation" class="sidebar-button-icon">
+                 </button>
+                 <button id="summarise-button" class="summarise-button">
+                     <img src="icons/ai-summary.svg" alt="AI Summary" class="sidebar-button-icon">
+                 </button>
+                 <button id="settings-button" class="settings-button">
+                     <img src="icons/settings.svg" alt="Settings" class="sidebar-button-icon">
+                 </button>
+             </div>
+    </div>
+
+    <!-- Citation Popup -->
+    <div id="citation-popup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <div class="popup-header-text">
+                    <h2 class="popup-title">CITATIONS</h2>
+                <span class="popup-subtitle">Cite the current webpage.</span>
                 </div>
-            </div>
-            <div id="search-bar">
-                <input id="url" type="text" class="search-bar-input" placeholder="search" />
+            <button id="close-citation-button" class="close-popup">
+                <img src="icons/cross.svg">
+            </button>
             </div>
             <div class="separator"></div>
-            <div id="tab-column">
-                
-            </div>
-            <div id="tab-controls">
-                <button id="new-tab-button" class="new-tab-button">
-                    <img src="icons/plus.svg" alt="New tab" class="new-tab-icon">
-                    <span class="new-tab-button-text">new tab</span>
+            <div id="citation-text-container">
+                <button id="new-project-button">
+                    <img src="icons/plus.svg" alt="New Project" class="new-project-icon">
+                    <span class="new-project-text">New Project</span>
                 </button>
             </div>
         </div>
-        
+    </div>
 
-        <!-- Dynamic Webviews -->
-        <div id="webview-container">
-
+    <!-- Summary Popup -->
+    <div id="summary-popup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <div class="popup-header-text">
+                    <h2 class="popup-title">AI SUMMARY</h2>
+                <span class="popup-subtitle">Summarise the current page</span>
+                </div>
+            <button id="close-summary-button" class="close-popup">
+                <img src="icons/cross.svg">
+            </button>
+            </div>
+            <div class="separator"></div>
+            <div id="summary-text-container">
+                <button id="generate-summary-button">SUMMARISE</button>
+            </div>
         </div>
+    </div>
 
-        <!-- Sidebar Toolbar -->
-        <div id="sidebar">
-            <button id="flashcards-button" class="flashcards-button">
-                <img src="icons/flashcards.svg" alt="Flashcards" class="sidebar-button-icon">
-            </button>
-            <button id="citation-button" class="citation-button">
-                <img src="icons/cite.svg" alt="Citation" class="sidebar-button-icon">
-            </button>
-            <button id="summarise-button" class="summarise-button">
-                <img src="icons/ai-summary.svg" alt="AI Summary" class="sidebar-button-icon">
-            </button>
-            <button id="settings-button" class="settings-button">
-                <img src="icons/settings.svg" alt="Settings" class="sidebar-button-icon">
-            </button>
-        </div>
-   </div>
     <script src="renderer.js" defer></script>
 
 </body>
